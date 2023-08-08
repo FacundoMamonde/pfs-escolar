@@ -16,7 +16,7 @@ import { EstudianteModule } from './estudiante/estudiante.module';
       username: 'root',
       password: '1234',
       database: 'escolar',
-      entities: ['./ciudad/entities/*.ts','./escuela/entities/*.ts','./profesor/entities/*.ts', './estudiante/entities/*.ts'],
+      entities: [__dirname + '/../dist/**/entities/*.entity.{js,ts}'],
       synchronize: false,
     }),
     CiudadModule,

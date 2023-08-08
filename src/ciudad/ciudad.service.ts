@@ -13,6 +13,7 @@ export class CiudadService {
   ) {}
 
   public async getAll(): Promise<Ciudad[]> {
+    console.log(__dirname)
     this.ciudades = await this.ciudadRepository.find();
     return this.ciudades;
   };

@@ -1,9 +1,10 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity('ciudades')
+@Entity('ciudad')
 export class Ciudad {
   @PrimaryGeneratedColumn()
-  private idCiudad: number;
+  private id_ciudad: number;
+
   @Column()
   private nombre: string;
 
@@ -12,7 +13,7 @@ export class Ciudad {
   }
 
   public getIdCiudad(): number {
-    return this.idCiudad;
+    return this.id_ciudad;
   }
   public getNombre(): string {
     return this.nombre;
