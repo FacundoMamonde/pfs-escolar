@@ -1,5 +1,7 @@
-import { Controller,Get,Param } from '@nestjs/common';
+import { Controller,Get,Param, Post, Body} from '@nestjs/common';
 import { EscuelaService } from './escuela.service';
+import { Escuela } from './entities/escuela.entity';
+import { EscuelaDTO } from './dto/escuela.dto';
 
 @Controller('escuela')
 export class EscuelaController {
@@ -12,7 +14,12 @@ export class EscuelaController {
     }
 
     @Get(':id')
-    public getSchoolById(@Param('id') id): any {
+    public getSchoolById(@Param('id') id): Promise<Escuela> {
         return this.escuelaService.getEscuelaById(parseInt(id))
     }
+
+    @Post()
+    public crearEscuela(@Body() escuela: EscuelaDTO): Promise<Escuela>{
+        return this.escuelaService.addEscuela(escuela)
+    };
 }
